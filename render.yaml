@@ -13,6 +13,10 @@ services:
         value: "3.12.7"
       - key: APP_NAME
         value: CanaBoom
+      - key: AI_PROVIDER
+        value: local
+      - key: AI_MODEL
+        value: llama3.2
       - key: STRIPE_SECRET_KEY
         sync: false
       - key: STRIPE_PUBLISHABLE_KEY

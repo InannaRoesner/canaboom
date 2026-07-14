@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { View, StyleSheet, StatusBar } from 'react-native';
+import { View, StyleSheet, StatusBar, Pressable, Text } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import GameCanvas from '../components/GameCanvas';
 import MobileHUD from '../components/MobileHUD';
@@ -12,6 +12,7 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Game'>;
 export default function GameScreen({ navigation }: Props) {
   const [lines, setLines] = useState<{ speaker: string; line: string }[]>([]);
   const [attackSignal, setAttackSignal] = useState(0);
+  const [tapSalvoSignal, setTapSalvoSignal] = useState(0);
   const [buildSignal, setBuildSignal] = useState(0);
   const [matchSignal, setMatchSignal] = useState(0);
 
@@ -23,14 +24,18 @@ export default function GameScreen({ navigation }: Props) {
     <View style={styles.root}>
       <StatusBar barStyle="light-content" />
       <MobileHUD />
-      <View style={styles.canvas}>
+      <Pressable style={styles.canvas} onPress={() => setTapSalvoSignal((n) => n + 1)}>
         <GameCanvas
           onDialog={onDialog}
           attackSignal={attackSignal}
+          tapSalvoSignal={tapSalvoSignal}
           buildSignal={buildSignal}
           matchSignal={matchSignal}
         />
-      </View>
+        <View style={styles.tapHint} pointerEvents="none">
+          <Text style={styles.tapText}>👆 Tippen = Orbit-Rakete feuert Salve</Text>
+        </View>
+      </Pressable>
       <DialogPanel lines={lines} />
       <TouchControls
         onAttack={() => setAttackSignal((n) => n + 1)}
@@ -45,4 +50,14 @@ export default function GameScreen({ navigation }: Props) {
 const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: '#050810' },
   canvas: { flex: 1 },
+  tapHint: {
+    position: 'absolute',
+    top: 8,
+    alignSelf: 'center',
+    backgroundColor: 'rgba(124,45,237,0.75)',
+    paddingHorizontal: 12,
+    paddingVertical: 5,
+    borderRadius: 8,
+  },
+  tapText: { color: '#fff', fontSize: 11, fontWeight: '700' },
 });

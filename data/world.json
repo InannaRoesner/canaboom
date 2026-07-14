@@ -1,8 +1,10 @@
 {
-  "hq_name": "Grow-HQ",
+  "hq_name": "Grow-HQ (Cannabis-Hauptbasis)",
+  "content_rating": "18+",
+  "content_note": "Explizites Cannabis/Hanf/Weed/Gras — keine Verniedlichung",
   "currencies": {
-    "blueten": { "label": "Blüten", "icon": "🌸" },
-    "duenger": { "label": "Dünger", "icon": "🧪" },
+    "blueten": { "label": "Cannabis-Blüten", "icon": "🌸" },
+    "duenger": { "label": "Hanf-Dünger", "icon": "🧪" },
     "diamanten": { "label": "Weltraum-Diamanten", "icon": "💎" }
   },
   "planets": [
@@ -13,8 +15,8 @@
     { "id": "jupiter_moon", "name": "Europa (Jupiter)", "order": 5, "unlock_hq_level": 15, "theme": "ice_hydro", "description": "Eisige Monde — maximale Hydro-Kultur." }
   ],
   "buildings": [
-    { "id": "grow_hq", "name": "Grow-HQ", "type": "hq", "cost_blueten": 0, "decoration": "neon_crown_leaves", "description": "Hauptquartier deiner verpeilten Alien-Crew." },
-    { "id": "gewaechshaus", "name": "Gewächshaus", "type": "resource", "produces": "blueten", "rate_per_hour": 120, "cost_blueten": 250, "cost_duenger": 40, "decoration": "neon_leaf_dome" },
+    { "id": "grow_hq", "name": "Grow-HQ (Cannabis)", "type": "hq", "cost_blueten": 0, "decoration": "neon_cannabis_crown", "description": "Hauptquartier — voller echter Cannabis-Pflanzen & saftiger Blätter." },
+    { "id": "gewaechshaus", "name": "Cannabis-Gewächshaus", "type": "resource", "produces": "blueten", "rate_per_hour": 120, "cost_blueten": 250, "cost_duenger": 40, "decoration": "neon_cannabis_leaf_dome" },
     { "id": "bewaesserung", "name": "Bewässerungsanlage", "type": "resource", "boost": "gewaechshaus", "boost_percent": 25, "cost_blueten": 180, "cost_duenger": 60, "decoration": "hydro_ring" },
     { "id": "trocknungsraum", "name": "Trocknungsraum", "type": "resource", "produces": "duenger", "rate_per_hour": 45, "cost_blueten": 320, "cost_duenger": 20, "decoration": "amber_vault" },
     { "id": "orbit_dock", "name": "Orbital-Dock", "type": "military", "unlocks": "landungsboot", "cost_blueten": 500, "decoration": "astronaut_rocket_pad" }
@@ -22,9 +24,10 @@
   "troops": [
     { "id": "plasma_werfer", "name": "Plasma-Werfer-Einheit", "damage_type": "fire", "weapon": "plasma_thrower", "cost_blueten": 80, "training_seconds": 45 },
     { "id": "flammen_rakete", "name": "Flammen-Raketen-Kommandant", "damage_type": "fire", "weapon": "flame_rocket", "cost_blueten": 140, "cost_duenger": 15, "training_seconds": 90 },
-    { "id": "landungsboot", "name": "Astronauten-Landungsboot", "type": "vehicle", "design": "astronaut_rocket_lander", "capacity": 8, "cost_blueten": 200, "cost_duenger": 30 }
+    { "id": "landungsboot", "name": "Astronauten-Landungsrakete", "type": "vehicle", "design": "whatsapp_rocket_lander", "capacity": 8, "cost_blueten": 200, "cost_duenger": 30 }
   ],
   "ships_orbit": [
+    { "id": "orbit_gunboat", "name": "Orbit-Kanonenrakete", "design": "whatsapp_rocket_gunboat", "role": "attack", "description": "Schwebt über feindlicher Cannabis-Basis — tippe zum Feuern" },
     { "id": "orbital_rocket_mk1", "name": "Orbital-Astronauten-Rakete", "design": "retro_astronaut_rocket", "orbit_slots": 3 },
     { "id": "orbital_rocket_mk2", "name": "Grow-Cruiser", "design": "neon_hydro_hull", "orbit_slots": 6 }
   ]

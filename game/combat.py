@@ -23,6 +23,22 @@ WEAPON_PROFILES = {
         "color": "#ff4500",
         "burn_duration_ms": 4500,
     },
+    "orbit_fire_salvo": {
+        "damage_min": 70,
+        "damage_max": 110,
+        "fire_spread": 1.5,
+        "particle_count": 150,
+        "color": "#ff4500",
+        "burn_duration_ms": 5000,
+    },
+    "orbit_laser_salvo": {
+        "damage_min": 45,
+        "damage_max": 75,
+        "fire_spread": 0.8,
+        "particle_count": 90,
+        "color": "#3b82f6",
+        "burn_duration_ms": 3200,
+    },
 }
 
 

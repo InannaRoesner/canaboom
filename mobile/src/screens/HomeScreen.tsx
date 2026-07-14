@@ -9,11 +9,11 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 export default function HomeScreen({ navigation }: Props) {
   return (
     <ScrollView style={styles.root} contentContainerStyle={styles.content}>
-      <Text style={styles.badge}>100% KOSTENLOS · iOS & ANDROID · 3D</Text>
+      <Text style={styles.badge}>18+ · CANNABIS · 3D MOBILE</Text>
       <Text style={styles.title}>{APP_NAME}</Text>
       <Text style={styles.lead}>
-        Boom-Beach-Mechanik im Sonnensystem. Grow-HQ, einzigartige Cannabis-Gebäude,
-        Astronauten-Raketen und KI-Alien-Crew.
+        Boom-Beach-Mechanik im Sonnensystem. Echtes Cannabis, Hanf & Weed — kein Kinder-Setting.
+        Grow-HQ, einzigartige Cannabis-Gebäude, WhatsApp-Style Orbit-Raketen, KI-Alien-Crew.
       </Text>
       <Pressable style={styles.cta} onPress={() => navigation.navigate('Game')}>
         <Text style={styles.ctaText}>🎮 3D-Spiel starten</Text>
