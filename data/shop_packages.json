@@ -4,3 +4,29 @@
   "free_to_play": true,
   "fair_play_note": "In-App-Käufe erhöhen die Matchmaking-Stärke nicht",
   "packages": {
+    "blueten": [
+      { "id": "blueten_t1", "name": "Kleiner Blüten-Sack", "amount": 500, "price_eur": 1.99, "bonus_percent": 0 },
+      { "id": "blueten_t2", "name": "Mittlerer Blüten-Korb", "amount": 1400, "price_eur": 4.99, "bonus_percent": 10 },
+      { "id": "blueten_t3", "name": "Großer Blüten-Tresor", "amount": 3200, "price_eur": 9.99, "bonus_percent": 15 },
+      { "id": "blueten_t4", "name": "Orbital-Blüten-Vault", "amount": 7500, "price_eur": 19.99, "bonus_percent": 20 },
+      { "id": "blueten_t5", "name": "Galaktischer Blüten-Safe", "amount": 20000, "price_eur": 49.99, "bonus_percent": 25 },
+      { "id": "blueten_t6", "name": "Kosmische Blüten-Reserve", "amount": 48000, "price_eur": 99.99, "bonus_percent": 30 }
+    ],
+    "diamanten": [
+      { "id": "dia_t1", "name": "Starter-Diamanten", "amount": 80, "price_eur": 1.99, "bonus_percent": 0 },
+      { "id": "dia_t2", "name": "Crew-Diamanten", "amount": 220, "price_eur": 4.99, "bonus_percent": 10 },
+      { "id": "dia_t3", "name": "Orbit-Diamanten", "amount": 520, "price_eur": 9.99, "bonus_percent": 15 },
+      { "id": "dia_t4", "name": "Nebel-Diamanten", "amount": 1200, "price_eur": 19.99, "bonus_percent": 20 },
+      { "id": "dia_t5", "name": "Supernova-Diamanten", "amount": 3200, "price_eur": 49.99, "bonus_percent": 25 },
+      { "id": "dia_t6", "name": "Universe-Diamanten", "amount": 7500, "price_eur": 99.99, "bonus_percent": 30 }
+    ],
+    "truhen": [
+      { "id": "truhe_t1", "name": "Bronze Geldtruhe", "loot_tier": "bronze", "price_eur": 1.99, "rewards": ["200 Blüten", "10 Dünger"] },
+      { "id": "truhe_t2", "name": "Silber Geldtruhe", "loot_tier": "silver", "price_eur": 4.99, "rewards": ["600 Blüten", "35 Dünger", "5 Diamanten"] },
+      { "id": "truhe_t3", "name": "Gold Geldtruhe", "loot_tier": "gold", "price_eur": 9.99, "rewards": ["1500 Blüten", "90 Dünger", "20 Diamanten"] },
+      { "id": "truhe_t4", "name": "Kosmische Truhe", "loot_tier": "cosmic", "price_eur": 19.99, "rewards": ["3500 Blüten", "200 Dünger", "60 Diamanten"] },
+      { "id": "truhe_t5", "name": "Legendäre Orbitaltruhe", "loot_tier": "legendary", "price_eur": 49.99, "rewards": ["10000 Blüten", "600 Dünger", "200 Diamanten"] },
+      { "id": "truhe_t6", "name": "Mega Grow-Vault", "loot_tier": "mega", "price_eur": 99.99, "rewards": ["25000 Blüten", "1500 Dünger", "600 Diamanten"] }
+    ]
+  }
+}
