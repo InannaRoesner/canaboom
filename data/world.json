@@ -1,0 +1,31 @@
+{
+  "hq_name": "Grow-HQ",
+  "currencies": {
+    "blueten": { "label": "Blüten", "icon": "🌸" },
+    "duenger": { "label": "Dünger", "icon": "🧪" },
+    "diamanten": { "label": "Weltraum-Diamanten", "icon": "💎" }
+  },
+  "planets": [
+    { "id": "earth", "name": "Erde", "order": 1, "unlock_hq_level": 1, "theme": "orbital_greenhouse", "description": "Startplanet — baue dein erstes Grow-HQ." },
+    { "id": "mars", "name": "Mars", "order": 2, "unlock_hq_level": 5, "theme": "red_dust_hydro", "description": "Rote Wüste — erweiterte Trocknungsräume." },
+    { "id": "mercury", "name": "Merkur", "order": 3, "unlock_hq_level": 8, "theme": "solar_flare", "description": "Extreme Sonnennähe — Plasma-Werfer-Forschung." },
+    { "id": "venus", "name": "Venus", "order": 4, "unlock_hq_level": 12, "theme": "acid_cloud", "description": "Dichte Atmosphäre — Elite-Gewächshaus-Kuppeln." },
+    { "id": "jupiter_moon", "name": "Europa (Jupiter)", "order": 5, "unlock_hq_level": 15, "theme": "ice_hydro", "description": "Eisige Monde — maximale Hydro-Kultur." }
+  ],
+  "buildings": [
+    { "id": "grow_hq", "name": "Grow-HQ", "type": "hq", "cost_blueten": 0, "decoration": "neon_crown_leaves", "description": "Hauptquartier deiner verpeilten Alien-Crew." },
+    { "id": "gewaechshaus", "name": "Gewächshaus", "type": "resource", "produces": "blueten", "rate_per_hour": 120, "cost_blueten": 250, "cost_duenger": 40, "decoration": "neon_leaf_dome" },
+    { "id": "bewaesserung", "name": "Bewässerungsanlage", "type": "resource", "boost": "gewaechshaus", "boost_percent": 25, "cost_blueten": 180, "cost_duenger": 60, "decoration": "hydro_ring" },
+    { "id": "trocknungsraum", "name": "Trocknungsraum", "type": "resource", "produces": "duenger", "rate_per_hour": 45, "cost_blueten": 320, "cost_duenger": 20, "decoration": "amber_vault" },
+    { "id": "orbit_dock", "name": "Orbital-Dock", "type": "military", "unlocks": "landungsboot", "cost_blueten": 500, "decoration": "astronaut_rocket_pad" }
+  ],
+  "troops": [
+    { "id": "plasma_werfer", "name": "Plasma-Werfer-Einheit", "damage_type": "fire", "weapon": "plasma_thrower", "cost_blueten": 80, "training_seconds": 45 },
+    { "id": "flammen_rakete", "name": "Flammen-Raketen-Kommandant", "damage_type": "fire", "weapon": "flame_rocket", "cost_blueten": 140, "cost_duenger": 15, "training_seconds": 90 },
+    { "id": "landungsboot", "name": "Astronauten-Landungsboot", "type": "vehicle", "design": "astronaut_rocket_lander", "capacity": 8, "cost_blueten": 200, "cost_duenger": 30 }
+  ],
+  "ships_orbit": [
+    { "id": "orbital_rocket_mk1", "name": "Orbital-Astronauten-Rakete", "design": "retro_astronaut_rocket", "orbit_slots": 3 },
+    { "id": "orbital_rocket_mk2", "name": "Grow-Cruiser", "design": "neon_hydro_hull", "orbit_slots": 6 }
+  ]
+}

@@ -1,0 +1,1 @@
+"""CanaBoom game package."""

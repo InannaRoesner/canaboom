@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Datenschutz — {{ app_name }}</title>
+  <link rel="stylesheet" href="/static/css/legal.css">
+</head>
+<body class="legal">
+  <h1>Datenschutzerklärung (DSGVO)</h1>
+  <p>Verantwortliche: <strong>{{ founder }}</strong>, {{ address }}. Kontakt: <a href="mailto:{{ email }}">{{ email }}</a></p>
+
+  <h2>1. Spiel & kostenloser Zugang</h2>
+  <p>
+    <strong>{{ app_name }}</strong> ist ein kostenloses 3D-Strategiespiel (Web/Mobile). Wir verarbeiten technisch
+    notwendige Daten zur Bereitstellung: IP-Adresse (gekürzt/anonymisiert), Session-ID, Spielstand,
+    Gerätetyp und Fehlerprotokolle. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertrag/Spielbetrieb).
+  </p>
+
+  <h2>2. In-App-Käufe (Stripe Sandbox / Live)</h2>
+  <p>
+    Optionale Käufe (Geldtruhen, Blüten, Weltraum-Diamanten) werden über <strong>Stripe Payments Europe Ltd.</strong>
+    abgewickelt. Zahlungsdaten (Karte, Wallet) werden ausschließlich von Stripe verarbeitet — wir speichern
+    keine vollständigen Zahlungsdaten. Wir erhalten: Transaktions-ID, Betrag, Zeitstempel, anonymisierte Spieler-ID.
+    Im <strong>Sandbox-Testmodus</strong> werden keine echten Belastungen durchgeführt.
+    Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.
+  </p>
+
+  <h2>3. Eingebaute KI (Alien-Crew-Dialoge)</h2>
+  <p>
+    {{ app_name }} nutzt eine integrierte KI-Schnittstelle für dynamische Dialoge, Tutorial-Erklärungen und
+    Live-Kampfkommentare der Alien-Crew. Je nach Konfiguration:
+  </p>
+  <ul>
+    <li><strong>Lokaler Modus:</strong> Dialoge werden serverseitig ohne externe Übermittlung generiert.</li>
+    <li><strong>Ollama / LLM-API:</strong> Spielkontext (Trigger, z. B. „Angriff gestartet“, Gebäudename, Schadenswert)
+      kann an einen konfigurierten KI-Dienst übermittelt werden. Es werden keine personenbezogenen Zahlungsdaten
+      an die KI gesendet.</li>
+  </ul>
+  <p>
+    Speicherdauer KI-Anfragen: maximal 30 Tage in Server-Logs, sofern nicht früher gelöscht.
+    Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Spielerlebnis) bzw. Einwilligung
+    bei optionaler Personalisierung.
+  </p>
+
+  <h2>4. Fair-Play-Matchmaking</h2>
+  <p>
+    Für PvP-Gegnersuche verwenden wir Spielleistungsdaten (HQ-Level, Gebäude, Truppen).
+    <strong>In-App-Käufe beeinflussen das Matchmaking nicht</strong> — gekaufte Währungen erhöhen keine Matchmaking-Stärke.
+  </p>
+
+  <h2>5. Cookies & lokale Speicherung</h2>
+  <p>
+    Wir setzen technisch notwendige Session-Cookies und localStorage für Spielstand ein. Kein Tracking zu
+    Werbezwecken ohne Einwilligung.
+  </p>
+
+  <h2>6. Speicherdauer</h2>
+  <ul>
+    <li>Spielstände: bis zur Löschung durch den Nutzer oder 24 Monate Inaktivität</li>
+    <li>Kaufprotokolle (Stripe-Metadaten): 10 Jahre (steuerrechtliche Aufbewahrung) bzw. kürzer im Sandbox-Modus</li>
+    <li>Server-Logs: 90 Tage</li>
+  </ul>
+
+  <h2>7. Ihre Rechte (DSGVO)</h2>
+  <p>
+    Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerspruch, Beschwerde bei einer
+    Aufsichtsbehörde — Anfragen an <a href="mailto:{{ email }}">{{ email }}</a>.
+  </p>
+
+  <h2>8. Minderjährige</h2>
+  <p>
+    Das Spiel richtet sich an Nutzer ab 16 Jahren. In-App-Käufe erfordern Zustimmung der Erziehungsberechtigten
+    gemäß Apple App Store / Google Play Richtlinien.
+  </p>
+
+  <h2>9. Datenübermittlung in Drittländer</h2>
+  <p>
+    Stripe und ggf. KI-API-Anbieter können Daten in den USA verarbeiten. Es gelten Standardvertragsklauseln (SCC)
+    bzw. Angemessenheitsbeschlüsse, soweit anwendbar.
+  </p>
+
+  <p><em>Stand: Juli 2026 — Platzhaltertext, vor Veröffentlichung rechtlich prüfen.</em></p>
+  <p><a href="/">← Zurück zu {{ app_name }}</a></p>
+</body>
+</html>

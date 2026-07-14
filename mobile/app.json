@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "CanaBoom",
+    "slug": "canaboom",
+    "version": "1.0.0",
+    "orientation": "landscape",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#050810"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "ai.finix.canaboom",
+      "buildNumber": "1"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#050810"
+      },
+      "package": "ai.finix.canaboom",
+      "versionCode": 1
+    },
+    "extra": {
+      "apiUrl": "http://127.0.0.1:8080",
+      "eas": {
+        "projectId": "canaboom-finix-ai"
+      }
+    },
+    "plugins": []
+  }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Truhen-Shop — {{ app_name }}</title>
+  <link rel="stylesheet" href="/static/css/game.css">
+</head>
+<body>
+  <header class="top">
+    <div class="logo">💎 {{ app_name }} Shop</div>
+    <nav><a href="/">Spiel</a><a href="/impressum">Impressum</a></nav>
+  </header>
+
+  <main class="hero shop-hero">
+    <h1>Geldtruhen & Diamanten</h1>
+    <p class="lead">Das Spiel ist <strong>kostenlos</strong>. Käufe sind optional — Preise wie Boom Beach (1,99 € – 99,99 €).</p>
+    {% if stripe_configured %}
+    <p class="badge ok">Stripe Sandbox aktiv ✓</p>
+    {% else %}
+    <p class="badge warn">Stripe nicht konfiguriert</p>
+    {% endif %}
+  </main>
+
+  {% for category, items in shop.packages.items() %}
+  <section class="panel">
+    <h2>{% if category == 'blueten' %}🌸 Blüten{% elif category == 'diamanten' %}💎 Diamanten{% else %}🧰 Geldtruhen{% endif %}</h2>
+    <div class="shop-grid">
+      {% for item in items %}
+      <article class="shop-card">
+        <h3>{{ item.name }}</h3>
+        <p class="price">{{ "%.2f"|format(item.price_eur) }} €</p>
+        {% if item.amount is defined %}<p>{{ item.amount }} Stück</p>{% endif %}
+        {% if item.rewards is defined %}<p class="loot">{{ item.rewards | join(' · ') }}</p>{% endif %}
+        <button class="cta buy-btn" data-id="{{ item.id }}" {% if not stripe_configured %}disabled{% endif %}>Kaufen (Test)</button>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endfor %}
+
+  <script src="/static/js/shop.js"></script>
+</body>
+</html>

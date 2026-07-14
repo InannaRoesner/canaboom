@@ -1,0 +1,6 @@
+{
+  "currency_note": "Original Boom Beach EUR-Preisstufen (1,99 / 4,99 / 9,99 / 19,99 / 49,99 / 99,99) — umgerechnet auf Blüten, Diamanten & Geldtruhen",
+  "boom_beach_price_tiers_eur": [1.99, 4.99, 9.99, 19.99, 49.99, 99.99],
+  "free_to_play": true,
+  "fair_play_note": "In-App-Käufe erhöhen die Matchmaking-Stärke nicht",
+  "packages": {

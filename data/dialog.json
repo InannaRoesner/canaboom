@@ -1,0 +1,21 @@
+{
+  "crew": [
+    { "id": "zorp", "name": "Zorp", "role": "Navigator", "avatar": "👽" },
+    { "id": "leafa", "name": "Leafa", "role": "Grow-Offizierin", "avatar": "🛸" },
+    { "id": "captain_bud", "name": "Captain Bud", "role": "Kommandant", "avatar": "🚀" }
+  ],
+  "tutorial": [
+    { "speaker": "zorp", "line": "Willkommen im Sonnensystem, Commander! Ich bin Zorp — und ja, ich habe die Landkarte verkehrt herum gehalten. Starten wir auf der ERDE!" },
+    { "speaker": "leafa", "line": "Dein Grow-HQ ist das Herzstück. Baue Gewächshäuser für Blüten und Bewässerungsanlagen, damit die Neon-Blätter leuchten!" },
+    { "speaker": "captain_bud", "line": "Dünger kommt aus den Trocknungsräumen. Ohne Dünger kein Hyper-Wachstum — Regel Nr. 1 im Orbit!" },
+    { "speaker": "zorp", "line": "Truppen nutzen Plasma-Werfer und Flammen-Raketen. Feuer löst ALLES — außer die Rechnung." },
+    { "speaker": "leafa", "line": "Landungsboote sehen aus wie Astronauten-Raketen. Süß, oder? Nicht unterschätzen!" },
+    { "speaker": "captain_bud", "line": "Mars, Merkur, Venus warten. Erobere Planet für Planet. Das Spiel ist KOSTENLOS — Truhen-Shop optional!" }
+  ],
+  "barks": [
+    { "trigger": "build_gewaechshaus", "speaker": "leafa", "line": "Neon-Blätter online! Das Gewächshaus sieht fantastisch aus." },
+    { "trigger": "attack_start", "speaker": "captain_bud", "line": "Flammen-Raketen bereit! Feuer frei!" },
+    { "trigger": "low_blueten", "speaker": "zorp", "line": "Blüten leer! Vielleicht eine Geldtruhe? Nur 'ne Idee…" },
+    { "trigger": "planet_unlock", "speaker": "zorp", "line": "Neuer Planet freigeschaltet! Ich hab's diesmal auf der Karte gefunden!" }
+  ]
+}
