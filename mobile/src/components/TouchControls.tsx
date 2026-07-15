@@ -7,9 +7,10 @@ type Props = {
   onBuild: () => void;
   onMatch: () => void;
   onShop: () => void;
+  onBack?: () => void;
 };
 
-export default function TouchControls({ onAttack, onBuild, onMatch, onShop }: Props) {
+export default function TouchControls({ onAttack, onBuild, onMatch, onShop, onBack }: Props) {
   const insets = useSafeAreaInsets();
   return (
     <View style={[styles.bar, { paddingBottom: insets.bottom + 8 }]}>
@@ -25,6 +26,11 @@ export default function TouchControls({ onAttack, onBuild, onMatch, onShop }: Pr
       <Pressable style={[styles.btn, styles.shop]} onPress={onShop}>
         <Text style={styles.btnText}>💎 Shop</Text>
       </Pressable>
+      {onBack ? (
+        <Pressable style={styles.btn} onPress={onBack}>
+          <Text style={styles.btnText}>🗺️ Karte</Text>
+        </Pressable>
+      ) : null}
     </View>
   );
 }

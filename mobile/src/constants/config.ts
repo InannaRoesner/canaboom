@@ -1,10 +1,10 @@
 import Constants from 'expo-constants';
 
-/** Android-Emulator: 10.0.2.2 = Host-PC. Production: Render-URL */
+/** Lokal: PC-LAN-IP. Android-Emulator: 10.0.2.2:8080 */
 export const API_URL =
   process.env.EXPO_PUBLIC_API_URL ||
   (Constants.expoConfig?.extra as { apiUrl?: string })?.apiUrl ||
-  'https://canaboom.onrender.com';
+  'http://192.168.0.215:8080';
 
 export const APP_NAME = 'CanaBoom';
 export const LEGAL = {

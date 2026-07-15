@@ -1,9 +1,4 @@
 {
-  "fair_play": {
-    "iap_affects_matchmaking": false,
-    "description": "Gekaufte Truhen, Blüten und Diamanten erhöhen die Matchmaking-Stärke NICHT. Nur HQ-Level, Gebäude und trainierte Truppen zählen.",
-    "max_pvp_advantage_from_iap": 0
-  },
   "vp_range": 40,
   "hq_weight": 120,
   "troop_weight": 15,

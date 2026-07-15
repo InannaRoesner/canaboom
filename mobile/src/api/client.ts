@@ -28,11 +28,6 @@ export type MatchResult = {
   fair_play: boolean;
   note: string;
 };
-export type ShopPackage = {
-  id: string; name: string; price_eur: number;
-  amount?: number; rewards?: string[]; category: string;
-};
-
 export const api = {
   health: () => request<{ status: string; ai_engine: boolean }>('/health'),
   world: () => request<Record<string, unknown>>('/api/v1/world'),
@@ -52,12 +47,5 @@ export const api = {
     request<MatchResult>('/api/v1/matchmaking/find', {
       method: 'POST',
       body: JSON.stringify({ hq_level: 3, troop_count: 12, building_count: 5, planet_id: 'earth' }),
-    }),
-  shopPackages: () =>
-    request<{ packages: ShopPackage[]; free_to_play: boolean }>('/api/v1/shop/packages'),
-  checkout: (packageId: string) =>
-    request<{ checkout_url: string }>('/api/v1/shop/checkout', {
-      method: 'POST',
-      body: JSON.stringify({ package_id: packageId, player_id: 'mobile_guest' }),
     }),
 };

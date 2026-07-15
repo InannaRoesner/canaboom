@@ -21,7 +21,7 @@ Cannabis-/Hanf-/Weed-Inhalten. Strikte Altersfreigabe: ab 18 Jahren (Jugendschut
 
 Verantwortlich für den Inhalt (§ 55 Abs. 2 RStV): ${LEGAL.founder}, ${LEGAL.address}
 
-Hinweis: Reines Unterhaltungsprodukt für Volljährige. Optionale In-App-Käufe über Stripe.
+Hinweis: Reines, kostenloses Unterhaltungsprodukt für Volljährige.
 Eingebaute KI für Alien-Dialoge — nur für 18+-Nutzer. Siehe Datenschutz.
 `;
 
@@ -33,27 +33,23 @@ Kontakt: ${LEGAL.email}
 
 0. Altersfreigabe 18+ (Jugendschutz)
 ${APP_NAME} enthält explizite Cannabis-/Hanf-Darstellungen. Zugang nur für volljährige Nutzer (18+).
-Beim ersten Start ist eine aktive Altersbestätigung erforderlich. Transaktionsdaten (Stripe)
-und KI-Verarbeitungsdaten werden ausschließlich für bestätigte Volljährige verarbeitet.
+Beim ersten Start ist eine aktive Altersbestätigung erforderlich. KI-Verarbeitungsdaten
+werden ausschließlich für bestätigte Volljährige verarbeitet.
 Minderjährige dürfen die App nicht nutzen.
 
 1. Kostenloser Spielzugang (18+)
 Technisch notwendige Daten: IP (gekürzt), Geräte-ID, Spielstand, Altersbestätigungs-Flag, Crash-Logs.
 Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.
 
-2. In-App-Käufe (Stripe, nur 18+)
-Zahlungen über Stripe Payments Europe Ltd. Keine Speicherung von Kreditkartendaten durch uns.
-Sandbox-Modus: keine echten Belastungen.
-
-3. Eingebaute KI (Alien-Crew, nur 18+)
+2. Eingebaute KI (Alien-Crew, nur 18+)
 Dynamische Dialoge via lokaler Engine oder LLM (Ollama/OpenAI).
 Spielkontext (Kampf, Cannabis-Gebäude, Schaden) kann an KI-Dienst übermittelt werden.
-Keine Zahlungsdaten an die KI. Speicherdauer Logs: max. 30 Tage.
+Speicherdauer Logs: max. 30 Tage.
 
-4. Fair Play Matchmaking
-HQ-Level, Gebäude und Truppen zählen — IAP-Käufe beeinflussen Matchmaking NICHT.
+3. Fair Play Matchmaking
+HQ-Level, Gebäude und Truppen bestimmen die Matchmaking-Stärke.
 
-5. Ihre Rechte (DSGVO)
+4. Ihre Rechte (DSGVO)
 Auskunft, Löschung, Widerspruch: ${LEGAL.email}
 
 Stand: Juli 2026 — Platzhalter, vor Veröffentlichung rechtlich prüfen.

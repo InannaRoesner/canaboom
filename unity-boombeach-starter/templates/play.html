@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>{{ app_name }} — 3D Weltraum-Strategie</title>
+  <link rel="stylesheet" href="/static/css/game.css">
+</head>
+<body class="play-mode">
+  <header class="top hud">
+    <div class="logo">🚀 {{ app_name }}</div>
+    <div class="hud-stats">
+      <span id="hud-blueten">🌸 1200</span>
+      <span id="hud-duenger">🧪 340</span>
+      <span id="hud-power">⚡ VP 240</span>
+    </div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/shop">Shop</a>
+    </nav>
+  </header>
+
+  <div id="game-canvas-wrap">
+    <canvas id="game-canvas"></canvas>
+    <div class="hud-overlay">
+      <button id="btn-attack" class="cta hud-btn">🔥 Angriff</button>
+      <button id="btn-match" class="cta secondary hud-btn">⚖️ Fair Match</button>
+      <button id="btn-build" class="cta secondary hud-btn">🏗️ Bauen</button>
+    </div>
+  </div>
+
+  <section class="panel dialog-box" id="dialog-panel">
+    <h2>👽 Alien-Crew <span class="ai-badge" id="ai-badge">KI aktiv</span></h2>
+    <div id="dialog-lines"></div>
+  </section>
+
+  <footer>
+    <p>© {{ founder }} · {{ brand }} · 100% kostenlos · <a href="/datenschutz">Datenschutz</a></p>
+  </footer>
+
+  <script>
+    window.CANABOOM = {{ world_json | safe }};
+  </script>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="/static/js/engine3d.js"></script>
+</body>
+</html>

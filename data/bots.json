@@ -1,0 +1,15 @@
+{
+  "description": "Fake-Bot-Gegner für simuliertes Matchmaking (Platzhalter bis Live-Spieler)",
+  "name_pool": [
+    "CosmicBlaze42",
+    "MarsGrower_X",
+    "OrbitKing99",
+    "HanfHunter",
+    "WeedWarden",
+    "PlasmaPete",
+    "GalaxyGardener"
+  ],
+  "avatar_style": "dicebear-bottts-neutral",
+  "fill_empty_planet_slots": true,
+  "iap_affects_bots": false
+}

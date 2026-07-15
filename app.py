@@ -1,4 +1,4 @@
-"""CanaBoom — FINIX.AI Weltraum-Strategie (kostenlos + IAP Shop)."""
+"""CanaBoom — FINIX.AI Weltraum-Strategie."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
+from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel, Field
@@ -24,16 +24,12 @@ from game.config import (  # noqa: E402
     LEGAL_BRAND,
     LEGAL_EMAIL,
     LEGAL_FOUNDER,
-    STRIPE_PUBLISHABLE_KEY,
     ai_available,
-    stripe_configured,
 )
 from game.ai_engine import generate_combat_commentary, generate_dialog, generate_tutorial_steps
 from game.combat import simulate_attack, simulate_raid
 from game.dialog import get_bark, get_crew, get_tutorial, load_dialog
 from game.matchmaking import compute_power_score, find_opponent
-from game.shop import find_package, list_all_packages, load_shop
-from game.stripe_iap import create_checkout_session
 from game.world import get_buildings, get_planets, get_troops, load_world
 
 ROOT = Path(__file__).resolve().parent
@@ -41,7 +37,7 @@ templates = Jinja2Templates(directory=str(ROOT / "templates"))
 
 app = FastAPI(
     title=APP_NAME,
-    description="Kostenloses Sonnensystem-Strategiespiel — Grow-HQ, Blüten, Dünger, Stripe Sandbox IAP.",
+    description="Kostenloses Sonnensystem-Strategiespiel — Grow-HQ, Blüten und Dünger.",
     version="1.0.0",
 )
 
@@ -64,16 +60,9 @@ def _ctx(request: Request, **extra) -> dict:
         "email": LEGAL_EMAIL,
         "address": LEGAL_ADDRESS,
         "brand": LEGAL_BRAND,
-        "stripe_configured": stripe_configured(),
-        "stripe_publishable_key": STRIPE_PUBLISHABLE_KEY,
         "free_to_play": True,
         **extra,
     }
-
-
-class CheckoutRequest(BaseModel):
-    package_id: str = Field(..., min_length=3)
-    player_id: str = Field(default="guest", max_length=64)
 
 
 class BarkRequest(BaseModel):
@@ -103,7 +92,6 @@ class MatchmakingRequest(BaseModel):
     troop_count: int = Field(default=0, ge=0)
     building_count: int = Field(default=0, ge=0)
     planet_id: str = Field(default="earth")
-    has_iap_boost: bool = False
 
 
 @app.get("/health")
@@ -111,7 +99,6 @@ def health() -> dict:
     return {
         "status": "ok",
         "app": APP_NAME,
-        "stripe_sandbox": stripe_configured(),
         "ai_engine": ai_available(),
         "ai_provider": AI_PROVIDER,
         "ai_model": AI_MODEL,
@@ -141,8 +128,7 @@ def home(request: Request) -> HTMLResponse:
 
 @app.get("/shop", response_class=HTMLResponse)
 def shop_page(request: Request) -> HTMLResponse:
-    shop = load_shop()
-    return templates.TemplateResponse(request, "shop.html", context=_ctx(request, shop=shop))
+    return templates.TemplateResponse(request, "shop.html", context=_ctx(request))
 
 
 @app.get("/impressum", response_class=HTMLResponse)
@@ -153,15 +139,6 @@ def impressum(request: Request) -> HTMLResponse:
 @app.get("/datenschutz", response_class=HTMLResponse)
 def datenschutz(request: Request) -> HTMLResponse:
     return templates.TemplateResponse(request, "datenschutz.html", context=_ctx(request))
-
-
-@app.get("/shop/success", response_class=HTMLResponse)
-def shop_success(request: Request, session_id: str = "") -> HTMLResponse:
-    return templates.TemplateResponse(
-        request,
-        "shop_success.html",
-        context=_ctx(request, session_id=session_id, sandbox=True),
-    )
 
 
 # --- Game API ---
@@ -267,7 +244,6 @@ def api_matchmaking_power(payload: MatchmakingRequest) -> dict:
         hq_level=payload.hq_level,
         troop_count=payload.troop_count,
         building_count=payload.building_count,
-        purchased_boost=payload.has_iap_boost,
     )
 
 
@@ -277,37 +253,7 @@ def api_matchmaking_find(payload: MatchmakingRequest) -> dict:
         hq_level=payload.hq_level,
         troop_count=payload.troop_count,
         building_count=payload.building_count,
-        purchased_boost=payload.has_iap_boost,
     )
     return find_opponent(power["power_score"], planet_id=payload.planet_id)
 
 
-@app.get("/api/v1/shop/packages")
-def api_shop_packages() -> dict:
-    return {
-        "free_to_play": load_shop()["free_to_play"],
-        "packages": list_all_packages(),
-    }
-
-
-@app.post("/api/v1/shop/checkout")
-def api_checkout(payload: CheckoutRequest) -> dict:
-    if not stripe_configured():
-        raise HTTPException(503, "Stripe Sandbox nicht konfiguriert.")
-    try:
-        return create_checkout_session(payload.package_id, player_id=payload.player_id)
-    except ValueError as exc:
-        raise HTTPException(400, str(exc)) from exc
-    except RuntimeError as exc:
-        raise HTTPException(503, str(exc)) from exc
-    except Exception as exc:
-        raise HTTPException(502, f"Stripe-Fehler: {exc}") from exc
-
-
-@app.get("/api/v1/shop/package/{package_id}")
-def api_package_detail(package_id: str) -> dict:
-    found = find_package(package_id)
-    if not found:
-        raise HTTPException(404, "Paket nicht gefunden.")
-    category, package = found
-    return {"category": category, **package}

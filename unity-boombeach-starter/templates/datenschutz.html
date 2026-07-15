@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Datenschutz — {{ app_name }}</title>
+  <link rel="stylesheet" href="/static/css/legal.css">
+</head>
+<body class="legal">
+  <h1>Datenschutzerklärung (DSGVO)</h1>
+  <p>Verantwortliche: <strong>{{ founder }}</strong>, {{ address }}. Kontakt: <a href="mailto:{{ email }}">{{ email }}</a></p>
+
+  <h2>0. Altersfreigabe 18+ (Jugendschutz)</h2>
+  <p>
+    <strong>{{ app_name }}</strong> enthält explizite Darstellungen von Cannabis-Pflanzen, Hanf, Weed und Gras.
+    Aus Jugendschutzgründen gilt eine <strong>strikte Altersfreigabe ab 18 Jahren</strong>.
+    KI-Verarbeitungsdaten werden ausschließlich für volljährige, altersbestätigte Nutzer verarbeitet.
+  </p>
+
+  <h2>1. Spiel & kostenloser Zugang (nur 18+)</h2>
+  <p>
+    <strong>{{ app_name }}</strong> ist ein kostenloses 3D-Strategiespiel (Web/Mobile). Wir verarbeiten technisch
+    notwendige Daten zur Bereitstellung: IP-Adresse (gekürzt/anonymisiert), Session-ID, Spielstand,
+    Gerätetyp und Fehlerprotokolle. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertrag/Spielbetrieb).
+  </p>
+
+  <h2>2. Eingebaute KI (Alien-Crew-Dialoge)</h2>
+  <p>
+    {{ app_name }} nutzt eine integrierte KI-Schnittstelle für dynamische Dialoge, Tutorial-Erklärungen und
+    Live-Kampfkommentare der Alien-Crew. Je nach Konfiguration:
+  </p>
+  <ul>
+    <li><strong>Lokaler Modus:</strong> Dialoge werden serverseitig ohne externe Übermittlung generiert.</li>
+    <li><strong>Ollama / LLM-API:</strong> Spielkontext (Trigger, z. B. „Angriff gestartet“, Gebäudename, Schadenswert)
+      kann an einen konfigurierten KI-Dienst übermittelt werden.</li>
+  </ul>
+  <p>
+    Speicherdauer KI-Anfragen: maximal 30 Tage in Server-Logs, sofern nicht früher gelöscht.
+    Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Spielerlebnis) bzw. Einwilligung
+    bei optionaler Personalisierung.
+  </p>
+
+  <h2>3. Fair-Play-Matchmaking</h2>
+  <p>
+    Für PvP-Gegnersuche verwenden wir Spielleistungsdaten (HQ-Level, Gebäude, Truppen).
+    Die Matchmaking-Stärke wird ausschließlich aus diesen Spielleistungsdaten berechnet.
+  </p>
+
+  <h2>4. Cookies & lokale Speicherung</h2>
+  <p>
+    Wir setzen technisch notwendige Session-Cookies und localStorage für Spielstand ein. Kein Tracking zu
+    Werbezwecken ohne Einwilligung.
+  </p>
+
+  <h2>5. Speicherdauer</h2>
+  <ul>
+    <li>Spielstände: bis zur Löschung durch den Nutzer oder 24 Monate Inaktivität</li>
+    <li>Server-Logs: 90 Tage</li>
+  </ul>
+
+  <h2>6. Ihre Rechte (DSGVO)</h2>
+  <p>
+    Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerspruch, Beschwerde bei einer
+    Aufsichtsbehörde — Anfragen an <a href="mailto:{{ email }}">{{ email }}</a>.
+  </p>
+
+  <h2>7. Minderjährige</h2>
+  <p>
+    Das Spiel richtet sich ausschließlich an volljährige Nutzer ab 18 Jahren.
+  </p>
+
+  <h2>8. Datenübermittlung in Drittländer</h2>
+  <p>
+    KI-API-Anbieter können Daten in den USA verarbeiten. Es gelten Standardvertragsklauseln (SCC)
+    bzw. Angemessenheitsbeschlüsse, soweit anwendbar.
+  </p>
+
+  <p><em>Stand: Juli 2026 — Platzhaltertext, vor Veröffentlichung rechtlich prüfen.</em></p>
+  <p><a href="/">← Zurück zu {{ app_name }}</a></p>
+</body>
+</html>

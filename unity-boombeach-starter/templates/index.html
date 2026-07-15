@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ app_name }} — Kostenlos · 3D Weltraum Grow-Strategie</title>
+  <meta name="description" content="CanaBoom: 3D Boom-Beach-Mechanik im Sonnensystem. Grow-HQ, Blüten, Dünger — 100% kostenlos.">
+  <link rel="stylesheet" href="/static/css/game.css">
+</head>
+<body>
+  <header class="top">
+    <div class="logo">🚀 {{ app_name }}</div>
+    <nav>
+      <a href="/play" class="nav-cta">3D Spielen</a>
+      <a href="/shop">Truhen-Shop</a>
+      <a href="/impressum">Impressum</a>
+      <a href="/datenschutz">Datenschutz</a>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <p class="badge">100% KOSTENLOS · FINIX.AI · 3D</p>
+    <h1>Erobere das Sonnensystem</h1>
+    <p class="lead">Boom-Beach-Mechanik im All: <strong>Grow-HQ</strong>, Gewächshäuser mit Neon-Blättern, Astronauten-Raketen im Orbit und Plasma-Feuer-Kämpfe — mit KI-gestützter Alien-Crew.</p>
+    <div class="currencies">
+      <span>🌸 Blüten</span>
+      <span>🧪 Dünger</span>
+      <span>💎 Diamanten</span>
+    </div>
+    <a href="/play" class="cta">🎮 3D-Welt starten</a>
+    <button id="btn-start" class="cta secondary">KI-Tutorial</button>
+    <a href="/shop" class="cta secondary">Truhen-Shop</a>
+  </main>
+
+  <section class="panel features">
+    <h2>Kern-Features</h2>
+    <div class="grid">
+      <div class="card"><strong>3D Sonnensystem</strong><p class="deco">Erde → Mars → Merkur → Venus → Europa</p></div>
+      <div class="card"><strong>Grow-HQ & Gebäude</strong><p class="deco">Gewächshäuser, Bewässerung, Trocknungsräume</p></div>
+      <div class="card"><strong>Astronauten-Raketen</strong><p class="deco">Rot/weiß wie das WhatsApp-Raketen-Emoji</p></div>
+      <div class="card"><strong>Feuer-Kampf</strong><p class="deco">Plasma-Werfer & Flammen-Raketen mit Partikeln</p></div>
+      <div class="card"><strong>Inline-KI Crew</strong><p class="deco">Dynamische Dialoge & Live-Kommentare</p></div>
+      <div class="card"><strong>Fair Play</strong><p class="deco">Matchmaking basiert ausschließlich auf Spielfortschritt</p></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Planeten</h2>
+    <div id="planets" class="grid"></div>
+  </section>
+
+  <section class="panel dialog-box" id="dialog-panel">
+    <h2>👽 Alien-Crew <span class="ai-badge">KI</span></h2>
+    <div id="dialog-lines"></div>
+  </section>
+
+  <footer>
+    <p>© {{ founder }} · {{ brand }} · <a href="mailto:{{ email }}">{{ email }}</a></p>
+  </footer>
+
+  <script>
+    window.CANABOOM = {{ world_json | safe }};
+  </script>
+  <script src="/static/js/game.js"></script>
+</body>
+</html>

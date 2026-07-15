@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, Pressable, StyleSheet, Alert } from 'react-native';
+import { View, Text, Pressable, StyleSheet, Alert, Image } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { setAgeVerified } from '../storage/ageGate';
 import { APP_NAME } from '../constants/config';
+import { ROCKET_IMAGE } from '../assets/images';
 import type { RootStackParamList } from '../navigation/types';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'AgeGate'>;
@@ -10,7 +11,7 @@ type Props = NativeStackScreenProps<RootStackParamList, 'AgeGate'>;
 export default function AgeGateScreen({ navigation }: Props) {
   const confirm = async () => {
     await setAgeVerified();
-    navigation.replace('Home');
+    navigation.replace('Loading');
   };
 
   const deny = () => {
@@ -23,6 +24,7 @@ export default function AgeGateScreen({ navigation }: Props) {
 
   return (
     <View style={styles.root}>
+      <Image source={ROCKET_IMAGE} style={styles.rocketHero} resizeMode="contain" />
       <Text style={styles.badge}>18+ · STRIKT</Text>
       <Text style={styles.title}>{APP_NAME}</Text>
       <Text style={styles.warning}>
@@ -52,6 +54,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 28,
   },
+  rocketHero: { width: 140, height: 140, marginBottom: 16 },
   badge: {
     color: '#ef4444',
     fontWeight: '800',

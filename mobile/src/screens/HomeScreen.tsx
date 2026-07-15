@@ -15,7 +15,7 @@ export default function HomeScreen({ navigation }: Props) {
         Boom-Beach-Mechanik im Sonnensystem. Echtes Cannabis, Hanf & Weed — kein Kinder-Setting.
         Grow-HQ, einzigartige Cannabis-Gebäude, WhatsApp-Style Orbit-Raketen, KI-Alien-Crew.
       </Text>
-      <Pressable style={styles.cta} onPress={() => navigation.navigate('Game')}>
+      <Pressable style={styles.cta} onPress={() => navigation.navigate('Game', {})}>
         <Text style={styles.ctaText}>🎮 3D-Spiel starten</Text>
       </Pressable>
       <Pressable style={styles.cta2} onPress={() => navigation.navigate('Shop')}>

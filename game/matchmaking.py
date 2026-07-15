@@ -1,4 +1,4 @@
-"""Fair-Play-Matchmaking — Boom-Beach-ähnliche Gegnersuche ohne Pay-to-Win."""
+"""Fair-Play-Matchmaking — Boom-Beach-ähnliche Gegnersuche."""
 
 from __future__ import annotations
 
@@ -15,10 +15,6 @@ def _load_rules() -> dict:
     if MATCH_FILE.exists():
         return json.loads(MATCH_FILE.read_text(encoding="utf-8"))
     return {
-        "fair_play": {
-            "iap_affects_matchmaking": False,
-            "description": "Gekaufte Blüten/Diamanten erhöhen NICHT die Matchmaking-Stärke.",
-        },
         "vp_range": 40,
         "hq_weight": 120,
         "troop_weight": 15,
@@ -31,12 +27,8 @@ def compute_power_score(
     hq_level: int = 1,
     troop_count: int = 0,
     building_count: int = 0,
-    purchased_boost: bool = False,
 ) -> dict:
-    """
-    Berechnet die Matchmaking-Stärke (Victory Points / Power).
-    Käufe aus dem Shop fließen bewusst NICHT ein (Fair Play).
-    """
+    """Berechnet die Matchmaking-Stärke (Victory Points / Power)."""
     rules = _load_rules()
     score = (
         hq_level * rules["hq_weight"]
@@ -49,8 +41,6 @@ def compute_power_score(
         "troop_count": troop_count,
         "building_count": building_count,
         "fair_play": True,
-        "iap_excluded": not rules["fair_play"]["iap_affects_matchmaking"],
-        "purchased_boost_ignored": purchased_boost,
     }
 
 
@@ -78,5 +68,5 @@ def find_opponent(
         "planet_id": planet_id,
         "fair_play": True,
         "match_quality": "balanced" if abs(opp_power - player_power) <= spread // 2 else "wide",
-        "note": "IAP-Käufe beeinflussen diese Suche nicht.",
+        "note": "Die Suche basiert ausschließlich auf Spielfortschritt.",
     }

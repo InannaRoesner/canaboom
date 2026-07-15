@@ -22,10 +22,6 @@ Nach dem Deploy unter **canaboom → Environment**:
 | Variable | Wert |
 |----------|------|
 | `BASE_URL` | `https://canaboom.onrender.com` (oder deine Render-URL) |
-| `STRIPE_SECRET_KEY` | `sk_test_...` aus `.env` |
-| `STRIPE_PUBLISHABLE_KEY` | `pk_test_...` aus `.env` |
-| `STRIPE_SUCCESS_URL` | `https://canaboom.onrender.com/shop/success?session_id={CHECKOUT_SESSION_ID}` |
-| `STRIPE_CANCEL_URL` | `https://canaboom.onrender.com/shop` |
 
 ## Testen
 

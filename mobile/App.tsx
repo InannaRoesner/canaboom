@@ -1,58 +1,46 @@
-import React, { useEffect, useState } from 'react';
-import { View, ActivityIndicator } from 'react-native';
+import React from 'react';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { NavigationContainer, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
-import AgeGateScreen from './src/screens/AgeGateScreen';
-import HomeScreen from './src/screens/HomeScreen';
-import GameScreen from './src/screens/GameScreen';
-import ShopScreen from './src/screens/ShopScreen';
-import LegalScreen from './src/screens/LegalScreen';
-import { isAgeVerified } from './src/storage/ageGate';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { AttackPreparationProvider } from './src/context/AttackPreparationContext';
+import { ArsenalProvider } from './src/context/ArsenalContext';
+import { BaseProvider } from './src/context/BaseContext';
+import { ResourceProvider } from './src/context/ResourceContext';
 import type { RootStackParamList } from './src/navigation/types';
+import GameScreen from './src/screens/GameScreen';
+import LoadingScreen from './src/screens/LoadingScreen';
+import MainScreen from './src/screens/MainScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const theme = {
   ...DarkTheme,
-  colors: { ...DarkTheme.colors, background: '#050810', card: '#0a0f1a', primary: '#7c3aed' },
+  colors: { ...DarkTheme.colors, background: '#09052d' },
 };
 
 export default function App() {
-  const [ready, setReady] = useState(false);
-  const [verified, setVerified] = useState(false);
-
-  useEffect(() => {
-    isAgeVerified().then((v) => {
-      setVerified(v);
-      setReady(true);
-    });
-  }, []);
-
-  if (!ready) {
-    return (
-      <View style={{ flex: 1, backgroundColor: '#050810', justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator color="#7c3aed" size="large" />
-      </View>
-    );
-  }
-
   return (
-    <SafeAreaProvider>
-      <NavigationContainer theme={theme}>
-        <StatusBar style="light" />
-        <Stack.Navigator
-          screenOptions={{ headerShown: false, animation: 'fade' }}
-          initialRouteName={verified ? 'Home' : 'AgeGate'}
-        >
-          <Stack.Screen name="AgeGate" component={AgeGateScreen} />
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Game" component={GameScreen} options={{ orientation: 'landscape' as const }} />
-          <Stack.Screen name="Shop" component={ShopScreen} />
-          <Stack.Screen name="Legal" component={LegalScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </SafeAreaProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaProvider>
+      <ResourceProvider>
+        <BaseProvider>
+          <AttackPreparationProvider>
+            <ArsenalProvider>
+              <NavigationContainer theme={theme}>
+                <StatusBar hidden />
+                <Stack.Navigator screenOptions={{ headerShown: false, animation: 'fade' }}>
+                  <Stack.Screen name="Loading" component={LoadingScreen} />
+                  <Stack.Screen name="Main" component={MainScreen} />
+                  <Stack.Screen name="Game" component={GameScreen} options={{ animation: 'slide_from_right' }} />
+                </Stack.Navigator>
+              </NavigationContainer>
+            </ArsenalProvider>
+          </AttackPreparationProvider>
+        </BaseProvider>
+      </ResourceProvider>
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 }

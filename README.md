@@ -7,13 +7,26 @@ Eigenständiges Projekt — **unabhängig von NanoBanane3**.
 ## Projektstruktur
 
 ```
-canaboom/                 # (= CanaBoom auf Windows)
-├── mobile/               # Expo React Native App (iOS & Android)
-├── app.py                # FastAPI Mobile-Backend
-├── game/                 # KI-Engine, Kampf, Matchmaking, Stripe
-├── data/                 # Welt, Shop (BB-Preise), Dialog
-└── render.yaml           # Backend-Deploy auf Render
+canaboom/                          # (= CanaBoom auf Windows)
+├── mobile/                        # Expo React Native — schneller Prototyp (iOS & Android)
+├── unity-boombeach-starter/       # Unity C# — nativer Boom-Beach-Client (Grid, Ressourcen, Gebäude)
+│   └── Assets/Scripts/            # ResourceController, GridSystem, BuildingPlacementController …
+├── app.py                         # FastAPI Mobile-Backend
+├── game/                          # KI-Engine, Kampf und Matchmaking
+├── data/                          # Welt, Karten und Dialog
+└── render.yaml                    # Backend-Deploy auf Render
 ```
+
+### Mobile vs. Unity
+
+| Pfad | Rolle |
+|------|-------|
+| `mobile/` | **Expo-Prototyp** — React Native, Three.js, isometrische Basis, Weltkarte, UI-Flows. Teilt Konzept und Backend-API mit Unity. |
+| `unity-boombeach-starter/` | **Unity-Starter** — C#-Skripte für den nativen Client: Raster (`GridSystem`), Touch-Platzierung (`BuildingPlacementController`), Wirtschaft (`ResourceController`). Kein vollständiges Unity-Projekt — Skripte in ein neues URP-Projekt kopieren (siehe `unity-boombeach-starter/README.md`). |
+
+Beide Clients nutzen dasselbe Spielkonzept (Gold, Holz, HQ, Insel-Basis). Geheimnisse (API-Keys, Stripe) liegen nur in `.env` am Repo-Root — **niemals committen**. Mobile liest `EXPO_PUBLIC_*` zur Laufzeit; Unity hat derzeit keine Backend-Anbindung.
+
+Details: `unity-boombeach-starter/docs/CONCEPT.md`
 
 ## Schnellstart
 
